@@ -13,7 +13,7 @@ var log;
  */
 class instance extends instance_skel {
 
-  /**
+	/**
 	 * Create an instance of a QView module.
 	 *
 	 * @param {EventEmitter} system - the brains of the operation
@@ -24,12 +24,10 @@ class instance extends instance_skel {
 	constructor(system,id,config) {
 		super(system,id,config);
 
-		Object.assign(this, {...actions});
-
 		this.actions();
 	}
 
-  /**
+	/**
 	 * Setup the actions.
 	 *
 	 * @param {EventEmitter} system - the brains of the operation
@@ -37,29 +35,29 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	actions(system) {
-    var actions = {};
+		var actions = {};
 
-  	actions['next']     = { label: 'Goto next page' };
-  	actions['previous'] = { label: 'Goto previous page' };
+		actions['next']     = { label: 'Goto next page' };
+		actions['previous'] = { label: 'Goto previous page' };
 
-  	actions['goto_page'] = {
-  		label: 'Goto page',
-  		options: [
-  			{
-  				label: 'Page',
-  				type: 'number',
-  				id: 'page',
-  				default: 1,
-  				min: 1,
-  				max: 9999
-  			}
-  		]
-  	};
+		actions['goto_page'] = {
+			label: 'Goto page',
+			options: [
+				{
+					label: 'Page',
+					type: 'number',
+					id: 'page',
+					default: 1,
+					min: 1,
+					max: 9999
+				}
+			]
+		};
 
 		this.setActions(actions);
 	}
 
-  /**
+	/**
 	 * Executes the provided action.
 	 *
 	 * @param {Object} action - the action to be executed
@@ -82,12 +80,12 @@ class instance extends instance_skel {
 				break;
 		}
 
-    if (cmd != "" && this.config.host !== undefined && this.config.port !== undefined) {
-  		this.system.emit('osc_send', this.config.host, this.config.port, cmd);
-  	}
+		if (cmd != "" && this.config.host !== undefined && this.config.port !== undefined) {
+			this.system.emit('osc_send', this.config.host, this.config.port, cmd);
+		}
 	}
 
-  /**
+	/**
 	 * Creates the configuration fields for web config.
 	 *
 	 * @returns {Array} the config fields
@@ -95,26 +93,26 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	config_fields() {
-  	return [
-      {
-  			type: 'textinput',
-  			id: 'host',
-  			label: 'Target IP',
-  			width: 8,
-  			regex: self.REGEX_IP
-  		},
-  		{
-  			type: 'textinput',
-  			id: 'port',
-  			label: 'Target Port',
-  			width: 4,
-  			regex: self.REGEX_PORT,
-        default: 60000
-  		}
-  	]
+		return [
+			{
+				type: 'textinput',
+				id: 'host',
+				label: 'Target IP',
+				width: 8,
+				regex: self.REGEX_IP
+			},
+			{
+				type: 'textinput',
+				id: 'port',
+				label: 'Target Port',
+				width: 4,
+				regex: self.REGEX_PORT,
+			default: 60000
+			}
+		]
 	}
 
-  /**
+	/**
 	 * Clean up the instance before it is destroyed.
 	 *
 	 * @access public
@@ -124,7 +122,7 @@ class instance extends instance_skel {
 		debug("destroy", this.id)
 	}
 
-  /**
+	/**
 	 * Main initialization function called once the module
 	 * is OK to start doing things.
 	 *
@@ -138,7 +136,7 @@ class instance extends instance_skel {
 		this.status(this.STATE_OK);
 	}
 
-  /**
+	/**
 	 * Process an updated configuration array.
 	 *
 	 * @param {Object} config - the new configuration

@@ -65,10 +65,10 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	action(action) {
-		let id = action.action;
-		let cmd;
+		let opt = action.options;
+		let cmd = '';
 
-		switch (id) {
+		switch (action.action) {
 			case 'next':
 				cmd = `/goto/next`;
 				break;
@@ -76,7 +76,7 @@ class instance extends instance_skel {
 				cmd = `/goto/prev`;
 				break;
 			case 'goto_page':
-				cmd = `/goto/page/${opt.number}`;
+				cmd = `/goto/page/${opt.page}`;
 				break;
 		}
 
@@ -99,15 +99,15 @@ class instance extends instance_skel {
 				id: 'host',
 				label: 'Target IP',
 				width: 8,
-				regex: self.REGEX_IP
+				regex: this.REGEX_IP
 			},
 			{
 				type: 'textinput',
 				id: 'port',
 				label: 'Target Port',
 				width: 4,
-				regex: self.REGEX_PORT,
-			default: 60000
+				regex: this.REGEX_PORT,
+				default: 60000
 			}
 		]
 	}

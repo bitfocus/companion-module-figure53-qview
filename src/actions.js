@@ -1,3 +1,5 @@
+import { Fields } from './setup.js'
+
 /**
  * Setup the actions.
  *
@@ -22,16 +24,7 @@ export function updateActions() {
 		},
 		goto_page: {
 			name: 'Goto page',
-			options: [
-				{
-					label: 'Page',
-					type: 'number',
-					id: 'page',
-					default: 1,
-					min: 1,
-					max: 9999,
-				},
-			],
+			options: [Fields.Page],
 			callback: ({ options }) => {
 				this.sendCommand(`/goto/page/${options.page}`)
 			},

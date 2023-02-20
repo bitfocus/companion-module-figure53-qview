@@ -1,26 +1,23 @@
 {
 	"name": "figure53-qview",
-	"version": "1.0.2",
-	"api_version": "1.0.0",
-	"keywords": [
-		"Software"
-	],
-	"manufacturer": "Figure 53",
-	"product": "QView",
-	"shortname": "qview",
-	"description": "QView plugin for Companion",
-	"main": "index.js",
+	"version": "2.0.0",
+	"main": "src/index.js",
+	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "Keith Rocheck <keith.rocheck@gmail.com>",
-	"license": "MIT",
-	"homepage": "https://github.com/bitfocus/companion-module-figure53-qview#readme",
-	"bugs": {
-		"url": "https://github.com/bitfocus/companion-module-figure53-qview/issues"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write ."
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/bitfocus/companion-module-figure53-qview.git"
-	}
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@companion-module/base": "~1.1"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "~1.0",
+		"prettier": "^2.8.3"
+	},
+	"prettier": "@companion-module/tools/.prettierrc.json"
 }

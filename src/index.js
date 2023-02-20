@@ -73,6 +73,7 @@ class Figure53QviewInstance extends InstanceBase {
 	 * Main initialization function called once the module
 	 * is OK to start doing things.
 	 *
+	 * @param {Object} config - the configuration
 	 * @access public
 	 * @since 1.0.0
 	 */
